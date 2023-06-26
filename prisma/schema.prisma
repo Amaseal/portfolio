@@ -41,3 +41,24 @@ model AuthKey {
   @@index([user_id])
   @@map("auth_key")
 }
+
+model Item {
+  id      Int     @id @unique @default(autoincrement())
+  content String
+  image   String
+  images  Image[]
+}
+
+model Image {
+  id     Int    @id @unique @default(autoincrement())
+  small  String
+  medium String
+  large  String
+  Item   Item?  @relation(fields: [itemId], references: [id])
+  itemId Int?
+}
+
+model Post {
+  id      Int    @id @unique @default(autoincrement())
+  content String
+}
