@@ -1,7 +1,7 @@
 <script>
+	import Nav from '$lib/components/Nav.svelte';
 	import '../styles.css';
 </script>
 
-<div class="container">
-	<slot><!-- optional fallback --></slot>
-</div>
+<Nav />
+<slot><!-- optional fallback --></slot>

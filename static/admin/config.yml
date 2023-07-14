@@ -22,3 +22,19 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Featured Photo', name: 'featured', widget: 'image' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'portfolio' # Used in routes, e.g., /admin/collections/blog
+    label: 'portfolio' # Used in the UI
+    folder: 'src/portfolio/posts' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Client', name: 'client', widget: 'string' }
+      - { label: 'Github Link', name: 'github', widget: 'string' }
+      - { label: 'Web link', name: 'link', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Featured Photo', name: 'featured', widget: 'image' }
+      - { label: 'Thumbnail', name: 'thumbnail', widget: 'image' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

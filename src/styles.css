@@ -15,13 +15,13 @@
 
   --ff-poppins: "Poppins", sans-serif;
   /* Step -1: 14.22px → 18.00px */
-  --fs-200: clamp(0.89rem, calc(0.81rem + 0.41vw), 1.13rem);
-  --fs-300: clamp(1rem, calc(0.83rem + 0.87vw), 1.5rem);
-  --fs-400: clamp(1.13rem, calc(0.82rem + 1.52vw), 2rem);
-  --fs-500: clamp(1.27rem, calc(0.78rem + 2.43vw), 2.67rem);
-  --fs-600: clamp(1.42rem, calc(0.68rem + 3.7vw), 3.55rem);
-  --fs-700: clamp(1.6rem, calc(0.51rem + 5.45vw), 4.74rem);
-  --fs-800: clamp(1.8rem, calc(0.23rem + 7.85vw), 6.31rem);
+  --fs-100: clamp(0.94rem, calc(0.92rem + 0.11vw), 1.00rem);
+  --fs-200: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  --fs-300: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
+  --fs-400: clamp(1.62rem, calc(1.50rem + 0.58vw), 1.95rem);
+  --fs-500: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
+  --fs-600: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
+  --fs-700: clamp(2.80rem, calc(2.45rem + 1.77vw), 3.82rem);
 }
 *,
 *::before,
@@ -36,7 +36,7 @@ html {
 }
 
 body {
-  /* font-size: var(--fs-200); */
+  font-size: var(--fs-100);
   line-height: 1.6;
   color: var(--clr-text);
   background-color: var(--clr-background);
@@ -52,14 +52,18 @@ h2,
 h3 {
   font-family: var(--ff-poppins);
   line-height: 1.1;
+
+  font-weight: 300;
 }
 
 h1 {
   font-size: var(--fs-700);
+  text-transform: uppercase;
 }
 
 h2 {
   font-size: var(--fs-600);
+  text-transform: uppercase;
 }
 
 ul,
@@ -73,13 +77,14 @@ ul li {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 a:hover {
   color: var(--clr-primary);
 }
-
 h3 {
-  font-size: var(--fs-500);
+  font-size: var(--fs-300);
+  color: var(--clr-primary);
 }
 
 .container {
@@ -87,6 +92,13 @@ h3 {
   margin-inline: auto;
 }
 
+.container-fluid {
+  width: calc(100% - 3rem);
+  margin-inline: auto;
+}
+p{
+  color: var(--clr-body);
+}
 .flow > * + * {
   margin-top: 1em;
 }
@@ -106,8 +118,7 @@ input {
   background: transparent;
   color: var(--clr-primary);
 }
-.button,
-button {
+.button{
   color: var(--clr-background);
   padding: var(--s-100) var(--s-300);
   background-color: transparent;
@@ -119,8 +130,7 @@ button {
   z-index: 1;
   transition: all 0.2s ease;
 }
-.button:before,
-button:before {
+.button:before{
   content: "";
   width: 100%;
   height: 100%;
@@ -131,15 +141,16 @@ button:before {
   z-index: -1;
   transition: all 0.2s ease;
 }
-.button:hover,
-button:hover {
+.button:hover{
   color: var(--clr-primary);
 }
-.button:hover:before,
-button:hover::before {
+.button:hover:before{
   width: 0;
 }
 
 .flex {
   display: flex;
+}
+.gap { 
+  gap: var(--s-200);
 }
