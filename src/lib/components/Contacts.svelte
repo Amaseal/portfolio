@@ -44,7 +44,15 @@
 					</li>
 				</ul>
 			</div>
-			<form name="contact" method="POST" netlify class="flow" netlify-honeypot="bot-field">
+			<form
+				name="contact"
+				method="POST"
+				action="/success"
+				netlify
+				class="flow"
+				netlify-honeypot="bot-field"
+			>
+				<input type="hidden" name="form-name" value="contact" />
 				<div class="flex gap inputs">
 					<label for="name"
 						>Name
@@ -57,7 +65,7 @@
 				</div>
 				<label for="message">
 					Message
-					<textarea name="message" id="" cols="30" rows="5" />
+					<textarea name="message" cols="30" rows="5" id="message" />
 				</label>
 
 				<button class="button">Send</button>
