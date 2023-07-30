@@ -20,6 +20,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Thumbnail Photo', name: 'thumbnail', widget: 'image' }
       - { label: 'Featured Photo', name: 'featured', widget: 'image' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'portfolio' # Used in routes, e.g., /admin/collections/blog
