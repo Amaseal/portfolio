@@ -9,7 +9,7 @@
 					<a href="/portfolio">Portfolio</a>
 				</li>
 				<li>
-					<a href="/about">About</a>
+					<a href="/#about">About</a>
 				</li>
 				<li>
 					<a href="/blog">Blog</a>
@@ -17,7 +17,7 @@
 			</ul>
 			<ul class="end">
 				<li>
-					<a href="/contacts" class="button">Contacts</a>
+					<a href="/#contacts" class="button">Contacts</a>
 				</li>
 			</ul>
 		</nav>
@@ -38,5 +38,10 @@
 	ul:first-of-type {
 		position: relative;
 		left: calc(125px / 2);
+	}
+	@media only screen and (max-width: 700px) {
+		ul:first-of-type {
+			left: 0;
+		}
 	}
 </style>

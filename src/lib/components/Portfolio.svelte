@@ -1,53 +1,54 @@
 <script lang="ts">
-	import type { Post } from '$lib/types';
-	import { fade } from 'svelte/transition';
-	import { flip } from 'svelte/animate';
-	import { send, receive } from '$lib/scripts/crosfade.js';
+	import type { Portfolio } from '$lib/types';
 	import MdiArrowRightBold from '~icons/mdi/arrow-right-bold';
-	export let posts: Post[];
+	import PortfolioItem from './PortfolioItem.svelte';
+	import { flip } from 'svelte/animate';
+	import { receive } from '$lib/scripts/crosfade.js';
+	export let portfolio: Portfolio[];
 
 	let next = () => {
-		let last = posts.pop() as Post;
-		posts = [last, ...posts];
+		let last = portfolio.pop() as Portfolio;
+		portfolio = [last, ...portfolio];
 	};
 </script>
 
 <section>
 	<div class="container">
 		<h2>Latest work:</h2>
-		<div class="flex">
-			{#each posts as post (post.slug)}
-				<a
-					in:receive={{ key: post.slug }}
-					animate:flip={{ duration: 100 }}
-					href="/portfolio/{post.slug}"
-				>
-					<img src={post.featured} alt="" />
-					<p class="title">{post.title}</p>
-				</a>
-			{/each}
+	</div>
+	<div class="container">
+		<div class="wrapper">
+			<div class="grid">
+				{#each portfolio as post (post.slug)}
+					<article in:receive={{ key: post.slug }} animate:flip={{ duration: 100 }}>
+						<PortfolioItem {post} />
+					</article>
+				{/each}
 
-			<button class="next" on:click={() => next()}> <MdiArrowRightBold /> </button>
+				<button aria-label="next item" class="next" on:click={() => next()}>
+					<MdiArrowRightBold />
+				</button>
+			</div>
 		</div>
 	</div>
 </section>
 
 <style>
-	.title {
-		display: none;
-		position: absolute;
-		bottom: 0;
-		padding: var(--s-200);
-		background-color: var(--clr-surface);
-		width: 100%;
-		border-bottom-left-radius: var(--s-200);
-		border-bottom-right-radius: var(--s-200);
+	.container {
+		width: min(100vw - ((100vw - 1200px) / 2), 100% - 3rem);
+		display: inline-flex;
+		justify-content: end;
 	}
-	a {
+	.wrapper {
 		position: relative;
+		display: inline-flex;
+		justify-content: end;
 	}
-	a:hover > .title {
-		display: block;
+	.grid {
+		width: 1750px;
+		display: grid;
+		gap: var(--s-200);
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	}
 	.next:hover {
 		border: 2px solid var(--clr-primary);
@@ -66,16 +67,9 @@
 		border-radius: 50%;
 		position: absolute;
 		top: 50%;
+		transition: all 0.15s ease;
 		transform: translateY(-50%);
 		right: -30px;
-	}
-	.flex {
-		justify-content: end;
-		margin-left: -600px;
-		display: inline-flex;
-		gap: var(--s-200);
-		flex-basis: 40%;
-		position: relative;
 	}
 	h2 {
 		text-align: end;
@@ -84,11 +78,5 @@
 
 	section {
 		padding: 88px 0;
-	}
-	img {
-		height: 350px;
-		width: 300px;
-		object-fit: cover;
-		border-radius: var(--s-200);
 	}
 </style>

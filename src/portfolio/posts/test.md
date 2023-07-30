@@ -2,7 +2,7 @@
 layout: portfolio
 title: 'What is Sveltekit portfolio'
 client: 'Client1'
-github: 'www.github.com'
+github: 'https://www.github.com'
 link: 'www.link.com'
 description: 'Learn everything you need to know about Sveltekit.'
 date: 2023-06-18 14:59:59
