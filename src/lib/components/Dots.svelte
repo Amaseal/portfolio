@@ -1,9 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	export let count = 20;
-	export let width;
-	export let height;
 </script>
 
 <div class="flex" id="container">
