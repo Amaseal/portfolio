@@ -100,6 +100,9 @@
 		color: var(--clr-primary);
 		border: 2px solid var(--clr-primary);
 	}
+	.inputs {
+		margin-top: 0;
+	}
 
 	@media only screen and (max-width: 1200px) {
 		.inputs {

@@ -32,6 +32,7 @@
 	.content {
 		margin-top: -300px;
 		padding-top: calc(88px + 300px);
+		padding-bottom: 88px;
 		background-color: var(--clr-surface);
 	}
 	.glob {
