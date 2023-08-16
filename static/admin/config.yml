@@ -24,7 +24,7 @@ collections:
       - { label: 'Featured Photo', name: 'featured', widget: 'image' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'portfolio' # Used in routes, e.g., /admin/collections/blog
-    label: 'portfolio' # Used in the UI
+    label: 'Portfolio' # Used in the UI
     folder: 'src/portfolio/posts' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: '{{slug}}' # Filename template, e.g., title.md
@@ -38,3 +38,8 @@ collections:
       - { label: 'Featured Photo', name: 'featured', widget: 'image' }
       - { label: 'Thumbnail', name: 'thumbnail', widget: 'image' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - name: images
+        label: Authors
+        widget: list
+        fields:
+          - { label: 'Featured Photo', name: 'featured', widget: 'image' }
